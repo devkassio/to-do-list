@@ -5,7 +5,7 @@ import { FaTrash, FaRocket } from 'react-icons/fa6';
 import { Container, TodoList, TodoListInput, Button, ListItem } from './styles';
 
 function App() {
-  const [list, setList] = useState([{ id: v4(), task: 'NADA PARA FAZER' }]);
+  const [list, setList] = useState([{ id: v4(), task: 'NADA PARA FAZER', finished: true }]);
   const [task, setTask] = useState('');
 
   function handleChange(event) {
