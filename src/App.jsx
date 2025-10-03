@@ -16,6 +16,21 @@ function App() {
     setList([...list, { id: v4(), task: task, finished: false }]);
   }
 
+  function finalizarTarefa(id) {
+    const newList = list.map((item) => {
+      if (item.id === id) {
+        return { ...item, finished: !item.finished };
+      }
+      return item;
+    });
+    setList(newList);
+  }
+
+  function deletarTarefa(id) {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
+  }
+
   return (
     <Container>
       <TodoList>
@@ -24,10 +39,10 @@ function App() {
 
         <ul>
           {list.map((item) => (
-            <ListItem isFinished={item.finished}>
-              <FaRocket />
-              <li key={item.id}>{item.task}</li>
-              <FaTrash />
+            <ListItem $isFinished={item.finished} key={item.id}>
+              <FaRocket onClick={() => finalizarTarefa(item.id)} />
+              <li>{item.task}</li>
+              <FaTrash onClick={() => deletarTarefa(item.id)} />
             </ListItem>
           ))}
         </ul>

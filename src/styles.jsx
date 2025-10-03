@@ -48,7 +48,7 @@ export const Button = styled.button`
 export const ListItem = styled.div`
   border-radius: 5px;
   height: 60px;
-  background: ${(props) => (props.isFinished ? '#80e852ec' : '#e4e4e4')};
+  background: ${({ $isFinished }) => ($isFinished ? '#80e852ec' : '#e4e4e4')};
   box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
