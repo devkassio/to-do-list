@@ -24,7 +24,7 @@ function App() {
 
         <ul>
           {list.map((item) => (
-            <ListItem>
+            <ListItem isFinished={item.finished}>
               <FaRocket />
               <li key={item.id}>{item.task}</li>
               <FaTrash />
