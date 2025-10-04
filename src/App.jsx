@@ -5,7 +5,7 @@ import { FaTrash, FaRocket } from 'react-icons/fa6';
 import { Container, TodoList, TodoListInput, Button, ListItem } from './styles';
 
 function App() {
-  const [list, setList] = useState([{ id: v4(), task: 'NADA PARA FAZER', finished: true }]);
+  const [list, setList] = useState([]);
   const [task, setTask] = useState('');
 
   function handleChange(event) {
@@ -13,6 +13,7 @@ function App() {
   }
 
   function handleAdd() {
+    if (task === '') return;
     setList([...list, { id: v4(), task: task, finished: false }]);
   }
 
@@ -38,11 +39,12 @@ function App() {
         <Button onClick={handleAdd}>Adicionar</Button>
 
         <ul>
+          {list.length === 0 && <h1>Nenhuma tarefa encontrada!</h1>}
           {list.map((item) => (
             <ListItem $isFinished={item.finished} key={item.id}>
-              <FaRocket onClick={() => finalizarTarefa(item.id)} />
+              <FaRocket onClick={() => finalizarTarefa(item.id)} cursor={'grab'} />
               <li>{item.task}</li>
-              <FaTrash onClick={() => deletarTarefa(item.id)} />
+              <FaTrash onClick={() => deletarTarefa(item.id)} cursor={'grab'} />
             </ListItem>
           ))}
         </ul>

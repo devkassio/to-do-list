@@ -14,6 +14,17 @@ export const TodoList = styled.div`
   padding: 30px 20px;
   border-radius: 5px;
 
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    line-height: 10px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #8052ec;
+    text-shadow: 0px 0px 5px rgba(139, 4, 206, 0.41);
+  }
+
   ul {
     padding: 0;
     margin-top: 50px;
@@ -28,6 +39,15 @@ export const TodoListInput = styled.input`
   border-radius: 5px;
   outline: none;
   margin-right: 20px;
+  padding: 0 15px;
+
+  &::placeholder {
+    line-height: 16px;
+  }
+
+  &:focus {
+    border: 2px solid #8052ec;
+  }
 `;
 
 export const Button = styled.button`
@@ -43,6 +63,14 @@ export const Button = styled.button`
   line-height: 16px;
   cursor: pointer;
   width: 130px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 `;
 
 export const ListItem = styled.div`
